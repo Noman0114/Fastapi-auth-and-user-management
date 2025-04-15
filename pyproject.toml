@@ -1,0 +1,25 @@
+[project]
+name = "fastapi"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "psycopg2>=2.9.10",
+    "uvicorn>=0.34.0",
+    "fastapi>=0.110.0",
+    "python-jose>=3.3.0",
+    "passlib>=1.7.4",
+    "bcrypt>=4.0.1",
+    "python-multipart>=0.0.9",
+    "email-validator>=2.1.0",
+    "oso>=0.27.3",
+]
+
+[dependency-groups]
+dev = [
+    "fastapi",
+]
+
+[tool.uv.sources]
+fastapi = { workspace = true }
