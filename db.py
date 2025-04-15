@@ -9,7 +9,7 @@ import psycopg2
 import urllib.parse
 
 def get_connection():
-    db_url = os.environ["postgresql://postgres.mbbveyymxjolgzbfkmhr:j9Xj._XcCPgz.8A@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"]  # 👈 Railway provides this
+    db_url = os.environ["DATABASE_URL"]  # 👈 Railway provides this
 
     return psycopg2.connect(db_url)
 
