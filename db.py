@@ -4,32 +4,14 @@ import os
 
 # Load environment variables from .env
 load_dotenv()
+import os
+import psycopg2
+import urllib.parse
 
-# Fetch variables
-USER = os.getenv("USER")
-PASSWORD = os.getenv("PASSWORD")
-HOST = os.getenv("HOST")
-PORT = os.getenv("PORT")
-DBNAME = os.getenv("DBNAME")
-
-# Establish the database connection
 def get_connection():
-    try:
-        connection = psycopg2.connect(
-            user=USER,
-            password=PASSWORD,
-            host=HOST,
-            port=PORT,
-            dbname=DBNAME
-        )
-        print("Database connection established successfully!")
-        return connection
-    except psycopg2.OperationalError as oe:
-        print(f"Operational error: {oe}")
-        raise
-    except Exception as e:
-        print(f"Failed to connect to the database: {e}")
-        raise
+    db_url = os.environ["postgresql://postgres.mbbveyymxjolgzbfkmhr:j9Xj._XcCPgz.8A@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"]  # 👈 Railway provides this
+
+    return psycopg2.connect(db_url)
 
 def initialize_tables():
     """
